@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>爱心超市登录页面</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="main_box">
+		<div class="content">
+			<h1>爱心超市登录</h1>
+			<form>
+				<div class="user">
+					<span>账号</span>
+					<input type="text" name="Username" id="userName" placeholder="请输入帐号" >
+					<div id="userName-error" class="field_message">
+						<em class="hwic_error">帐号不能为空</em>
+					</div>
+				</div>
+				<div class="powss">
+					<span>密码</span>
+					<input type="password" name="password" id="password" autocomplete="off" placeholder="请输入密码">
+					<div id="password-error" class="field_message">
+						<em class="hwic_error">密码不能为空</em>
+					</div>
+				</div>
+				<div class="login-btn">
+					<div id="thesubmit" class="link-submit js-login-form-btn">登录</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

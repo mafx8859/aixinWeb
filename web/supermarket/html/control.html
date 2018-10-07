@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>管理界面</title>
+    <link rel="stylesheet" type="text/css" href="../css/control.css">
+</head>
+<body>
+	<div class="main_box">
+        <div class="header">
+            <h2>爱心驿站管理系统</h2>
+            <div class="header-right">
+                <span>销售员ID：<em id="sellerID"></em></span>
+                <a href="http://wxy.nenu.edu.cn/aixinWeb/doService?flag=safeOut" id="logout">退出登录</a>
+            </div>
+        </div>
+		<div class="content">
+			<div class="stdInfo">
+                <h3>学生基本信息</h3>
+                <div class="stdInfo_min">
+                    <form>
+                        <div class="inputbox">
+                            <span>学号：</span>
+                            <input type="text" name="stuID" id="stuID">
+                            <input type="button" id="thesearch" value="点击查询">
+                        </div>
+                        <br/>
+
+                        <div class="inputbox searchResult">
+                            <span>姓名：</span>
+                            <input type="text" name="stuName" id="stuName" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span> 学院：</span>
+                            <input type="text" name="departmentName" id="departmentName" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span>专业：</span>
+                            <input type="text" name="specialName" id="specialName" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span>年级：</span>
+                            <input type="text" name="grade" id="grade" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span>资助类型：</span>
+                            <input type="text" name="imburseTypeName" id="imburseTypeName" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span>日用币：</span>
+                            <input type="text" name="balanceRiyong" id="balanceRiyong" readonly="true">
+                        </div>
+
+                        <div class="inputbox searchResult">
+                            <span>服装币：</span>
+                            <input type="text" name="balanceFuzhuang" id="balanceFuzhuang" readonly="true">
+                        </div>
+
+                        <h3>购买记录</h3>
+                        <div class="purchaseRecord">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>商品名称</th>
+                                        <th>校区</th>
+                                        <th>时间</th>
+                                        <th>商品单价</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="buyRecord">
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="shopInfo">
+                <h3>购物信息</h3>
+                <form>
+                    <div class="inputbox">
+                        <span>条形码：</span>
+                        <input type="text" name="barCode" id="barCode">
+                        <input type="button" id="theconfig" value="确认添加">
+                    </div>
+                    <div class="inputbox shopbox">
+                        <span>日用币：</span>
+                        <input type="text" name="shopRiyong" id="shopRiyong" readonly="true">
+                    </div>
+                    <div class="inputbox shopbox">
+                        <span>服装币：</span>
+                        <input type="text" name="shopFuzhuang" id="shopFuzhuang" readonly="true">
+                    </div>
+                </form>
+
+                <table class="dataintable">
+                    <thead>
+                        <tr>
+                          <th>条形码</th>
+                          <th>商品名称</th>
+                          <th>商品单价</th>
+                          <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shopList">
+                    </tbody>
+                    
+                </table>
+
+                <div class="settlement">
+                    <button id="balance">结算</button>
+                </div>
+            </div>
+		</div>
+	</div>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/control.js"></script>
+</body>
+</html>

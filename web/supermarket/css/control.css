@@ -1,0 +1,243 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	min-width: 1080px;
+}
+.header {
+	background: #f66f6a;
+	color: #fff;
+	padding: 10px 5px;
+	height: 30px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+}
+.header .header-right {
+	float: right;
+	text-align: center;
+	margin-right: 40px;
+	height: 30px;
+	line-height: 30px;
+}
+.header .header-right a {
+	display: inline-block;
+	margin-left: 20px;
+	text-decoration: none;
+	padding: 0px 10px;
+	border-radius: 20px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	color: #f66f6a;
+}
+.header h2 {
+	float: left;
+	font-weight: lighter;
+	margin-left: 5px;
+}
+.content {
+	padding: 10px;
+	width: 1080px;
+	margin: 60px auto;
+}
+.stdInfo {
+	box-shadow: 2px 0 46px rgba(0, 0, 0, 0.18);
+    border-radius: 5px;
+    padding: 5px 30px 50px 30px;
+    margin-bottom: 50px;
+}
+.stdInfo .inputbox {
+	margin-top: 15px;
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 16px;
+	margin-right: 80px;
+}
+.shopInfo {
+	box-shadow: 2px 0 46px rgba(0, 0, 0, 0.18);
+    border-radius: 5px;
+    padding: 5px 30px 50px 30px;
+    margin-bottom: 50px;
+}
+.shopInfo .inputbox {
+	margin-top: 15px;
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 16px;
+	margin-right: 80px;
+}
+.inputbox span {
+	display: inline-block;
+	width: 80px;
+}
+.inputbox input {
+	height: 20px;
+	padding: 2px 5px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+.searchResult input {
+	cursor: not-allowed;
+}
+.stdInfo h3 {
+	margin-top: 30px;
+}
+.shopInfo h3 {
+	margin-top: 30px;
+}
+.purchaseRecord {
+	height: 500px;
+	overflow-y: scroll;
+}
+.purchaseRecord table{
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+.purchaseRecord table td, .purchaseRecord table th{
+	text-align: center;
+	padding: 10px;
+    border: 1px solid #cad9ea;
+    color: #666;
+}
+.purchaseRecord table thead th{
+	word-break: keep-all;
+	padding: 10px 35px;
+    background-color: #CCE8EB;
+    width: 100px;
+}
+.purchaseRecord table tr:nth-child(odd){
+    background: #fff;
+}
+.purchaseRecord table tr:nth-child(even){
+    background: #F5FAFA;
+}
+.purchaseRecord .wp_paging {
+    text-align: center;
+    padding-top: 13px;
+    list-style: none;
+    font-size: 13px;
+    font-family: 'Microsoft Yahei', Verdana, Geneva, sans-serif;
+    color: #494949;
+}
+.purchaseRecord .wp_paging li {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+
+.wp_paging li span, .wp_paging li a {
+    display: inline-block;
+    margin-left: 10px;
+}
+.wp_paging li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #666;
+    line-height: 25px;
+    height: 25px;
+    font-size: 15px;
+}
+.wp_paging li a:hover {
+    color: #000;
+}
+.wp_paging li em {
+    font-style: normal;
+}
+.wp_paging li input {
+    font-size: 12px;
+    width: 24px;
+    height: 15px;
+    line-height: 15px;
+    border: 1px solid #d5d5d5;
+    background: #fff;
+    margin-top: 4px;
+    text-align: center;
+}
+#thesearch {
+	height: 30px;
+	padding: 2px 8px;
+}
+#theconfig {
+	height: 30px;
+	padding: 2px 8px;
+}
+.shopbox input {
+	width: 70px;
+	cursor: not-allowed;
+}
+
+table.dataintable {
+  margin-top:15px;
+  border-collapse:collapse;
+  border:1px solid #aaa;
+  width:100%;
+}
+table.dataintable th {
+  vertical-align:baseline;
+  padding:5px 15px 5px 6px;
+  background-color:#3F3F3F;
+  border:1px solid #3F3F3F;
+  text-align:left;
+  color:#fff;
+}
+table.dataintable td {
+  vertical-align:text-top;
+  padding:6px 15px 6px 6px;
+  border:1px solid #aaa;
+}
+table.dataintable tr:nth-child(odd) {
+  background-color:#F5F5F5;
+}
+table.dataintable tr:nth-child(even) {
+  background-color:#fff;
+}
+table.dataintable button {
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px 10px;
+	background-color: #f66f6a;
+	border: 0px;
+	border-radius: 4px;
+	color: white;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+table.dataintable button:hover,
+table.dataintable button:active {
+	background-color: red;
+}
+.settlement {
+	margin: 40px auto 20px auto;
+	text-align: center;
+}
+.settlement button {
+	cursor: pointer;
+	text-align: center;
+	border-radius: 15px;
+	padding: 15px 30px;
+	font-size: 22px;
+	letter-spacing: 5px;
+	border: 0px;
+	background-color: #00FF7F;
+	color: white;
+	font-weight: bolder;
+}
+.settlement button:focus {
+	outline: 0px;
+}
+.settlement button:hover,
+.settlement button:active {
+	background-color: #32CD32;
+}
+#sellerID {
+	font-style: normal;
+}
