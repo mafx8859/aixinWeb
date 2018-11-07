@@ -39,6 +39,7 @@ public class doLogin extends HttpServlet {
             message = "登录成功";
             stateCode = 1;
             request.getSession().setAttribute("username", username);
+            request.getSession().setMaxInactiveInterval(-1);
         } else {
             message = "用户名或密码错误！！！";
             stateCode = 0;

@@ -9,9 +9,11 @@ import java.io.IOException;
  * Created by mafx on 2018/8/1.
  */
 public class ConfigFilter implements Filter {
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletResponse response=(HttpServletResponse)resp;
         HttpServletRequest request=(HttpServletRequest)req;
@@ -26,6 +28,7 @@ public class ConfigFilter implements Filter {
         chain.doFilter(req, resp);
     }
 
+    @Override
     public void init(FilterConfig config) throws ServletException {
 
     }
