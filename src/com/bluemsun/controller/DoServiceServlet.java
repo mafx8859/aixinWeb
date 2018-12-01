@@ -34,7 +34,7 @@ public class DoServiceServlet extends HttpServlet {
             case "safeOut":safeOut(request,response);break;
         }
     }
-
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }

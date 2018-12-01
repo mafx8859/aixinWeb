@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -43,11 +44,24 @@ public class DoServiceDao {
     }
     public List<BuyRecord> getBuyRecordByIdDao(int id) {
         String sql = "SELECT aixin_record.time,aixin_record.totalMoney,aixin_record.compus,aixin_goods.categoryName from aixin_record,aixin_goods,aixin_student " +
-                "where aixin_student.id=aixin_record.aixin_studentId and aixin_record.aixin_goodsId=aixin_goods.id and aixin_student.info_studentId=" + id;
+                "where aixin_student.id=aixin_record.aixin_studentId and aixin_record.aixin_goodsId=aixin_goods.id and aixin_student.info_studentId=? and aixin_record.time like ? order by aixin_record.id desc";
         conn = JDBCUtil.getConnection();
+        Calendar date=Calendar.getInstance();
+        String year=date.get(Calendar.YEAR)+"";
+
+        int mouth=date.get(Calendar.MONTH)+1;
+        String mouthStr;
+        if (mouth<10){
+            mouthStr="0"+mouth;
+        }else {
+            mouthStr=mouth+"";
+        }
+        String regDate="%"+year+"-"+mouthStr+"%";
+        System.out.println(regDate);
+        Object[] param={id,regDate};
         List<BuyRecord> buyRecordList=null;
         try {
-            buyRecordList = queryRunner.query(conn, sql, new BeanListHandler<BuyRecord>(BuyRecord.class));
+            buyRecordList = queryRunner.query(conn, sql, new BeanListHandler<BuyRecord>(BuyRecord.class),param);
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {

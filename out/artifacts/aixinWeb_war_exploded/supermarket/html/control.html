@@ -4,8 +4,61 @@
     <meta charset="utf-8">
 	<title>管理界面</title>
     <link rel="stylesheet" type="text/css" href="../css/control.css">
+    <style type="text/css">
+    .loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left:0;
+        top:0;
+        text-align: center;
+        background-color:#000;
+        opacity:0.5;
+        z-index: 2;
+        display: none;
+    }
+    .loading p {
+        color: white;
+        font-size: 20px;
+    }
+    .loader {
+        z-index: 3;
+        margin-top: 100px;
+        background: linear-gradient(to right, rgb(22, 113, 202) 50%, transparent 50%);
+        animation: spin 1s infinite linear;
+    }
+    .circle {
+        z-index: 3;
+        opacity: 1;
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        box-shadow: 4px -40px 60px 5px rgb(26, 117, 206) inset;
+    }
+    .loader:before {
+        display: block;
+        content: '';
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background-color: #000;
+        border-radius: 50%;
+    }
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    </style>
 </head>
 <body>
+    <div class="loading">
+           <div class="circle loader"></div>
+           <p>正在加载中...</p>
+    </div>
 	<div class="main_box">
         <div class="header">
             <h2>爱心驿站管理系统</h2>
@@ -61,59 +114,59 @@
                             <input type="text" name="balanceFuzhuang" id="balanceFuzhuang" readonly="true">
                         </div>
 
-                        <h3>购买记录</h3>
-                        <div class="purchaseRecord">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>商品名称</th>
-                                        <th>校区</th>
-                                        <th>时间</th>
-                                        <th>商品单价</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="buyRecord">
-                                </tbody>
-                            </table>
-                        </div>
+                        <h3>购物信息</h3>
+                        <form>
+                            <div class="inputbox">
+                                <span>条形码：</span>
+                                <input type="text" name="barCode" id="barCode">
+                                <input type="button" id="theconfig" value="确认添加">
+                            </div>
+                            <div class="inputbox shopbox">
+                                <span>日用币：</span>
+                                <input type="text" name="shopRiyong" id="shopRiyong" readonly="true">
+                            </div>
+                            <div class="inputbox shopbox">
+                                <span>服装币：</span>
+                                <input type="text" name="shopFuzhuang" id="shopFuzhuang" readonly="true">
+                            </div>
+                        </form>
+
+                        <table class="dataintable">
+                            <thead>
+                                <tr>
+                                  <th>条形码</th>
+                                  <th>商品名称</th>
+                                  <th>商品单价</th>
+                                  <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="shopList">
+                            </tbody>
+                            
+                        </table>
+
+                        <div class="settlement">
+                            <button id="balance">结算</button>
+                        </div>                      
                     </form>
                 </div>
             </div>
 
             <div class="shopInfo">
-                <h3>购物信息</h3>
-                <form>
-                    <div class="inputbox">
-                        <span>条形码：</span>
-                        <input type="text" name="barCode" id="barCode">
-                        <input type="button" id="theconfig" value="确认添加">
-                    </div>
-                    <div class="inputbox shopbox">
-                        <span>日用币：</span>
-                        <input type="text" name="shopRiyong" id="shopRiyong" readonly="true">
-                    </div>
-                    <div class="inputbox shopbox">
-                        <span>服装币：</span>
-                        <input type="text" name="shopFuzhuang" id="shopFuzhuang" readonly="true">
-                    </div>
-                </form>
-
-                <table class="dataintable">
-                    <thead>
-                        <tr>
-                          <th>条形码</th>
-                          <th>商品名称</th>
-                          <th>商品单价</th>
-                          <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody id="shopList">
-                    </tbody>
-                    
-                </table>
-
-                <div class="settlement">
-                    <button id="balance">结算</button>
+                <h3>购买记录</h3>
+                <div class="purchaseRecord">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>商品名称</th>
+                                <th>校区</th>
+                                <th>时间</th>
+                                <th>商品单价</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buyRecord">
+                        </tbody>
+                    </table>
                 </div>
             </div>
 		</div>

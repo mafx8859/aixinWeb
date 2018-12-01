@@ -3,6 +3,8 @@ var coinFuzhuang = 0;
 var ownRiyong = 0;
 var ownFuzhuang = 0;
 var jqxhr;
+var theload = $('.loading');
+var theUrl = "http://wxy.nenu.edu.cn/aixinWeb/"; //ip地址
 //设置ajax请求完成后运行的函数,
 $.ajaxSetup({
     complete:function(){
@@ -17,10 +19,12 @@ $.ajaxSetup({
 });
 $(function(){
     function loadID(){
+        theload.show();
         $.ajax({
             async:false,
             type:"POST",
-            url:"http://wxy.nenu.edu.cn/aixinWeb/doLogin?flag=getUsername",
+            //url:"http://wxy.nenu.edu.cn/aixinWeb/doLogin?flag=getUsername",
+            url:theUrl + "doLogin?flag=getUsername",
             dataType:"json",
             xhrFields: {
                 withCredentials: true
@@ -29,8 +33,10 @@ $(function(){
             success:function(x,y,xhr){
                 $('#sellerID').html(x.username);
                 jqxhr = xhr;
+                theload.hide();
             },
             error:function(jqXHR){
+                theload.hide();
                 console.log(jqXHR);
             }
         });
@@ -47,10 +53,11 @@ $(function(){
             alert("输入格式不合法");
         }
         else{
+            theload.show();
             $.ajax({
                 async:false,
                 type:"POST",
-                url:"http://wxy.nenu.edu.cn/aixinWeb/doService?flag=queryInfo",
+                url: theUrl + "doService?flag=queryInfo",
                 dataType:"json",
                 data:{
                     stuID:stuID
@@ -60,6 +67,7 @@ $(function(){
                 },
                 crossDomain: true,
                 success:function(x,y,xhr){
+                    theload.hide();
                     jqxhr = xhr;
                     $("#stuName").val(x.stuInfo.name);
                     $("#departmentName").val(x.stuInfo.departmentName);
@@ -84,6 +92,8 @@ $(function(){
                     };
                 },
                 error:function(jqXHR){
+                    theload.hide();
+                    alert("学号不存在");
                     console.log(jqXHR);
                 }
             });
@@ -103,10 +113,11 @@ $(function(){
             alert("请输入条形码");
         }
         else{
+            theload.show();
             $.ajax({
                 async:false,
                 type:"POST",
-                url:"http://wxy.nenu.edu.cn/aixinWeb/doService?flag=queryGoodsByBarcode",
+                url:theUrl + "doService?flag=queryGoodsByBarcode",
                 dataType:"json",
                 data:{
                     barCode:barCode
@@ -116,6 +127,7 @@ $(function(){
                 },
                 crossDomain: true,
                 success:function(x,y,xhr){
+                    theload.hide();
                     jqxhr = xhr;
                     if(x == null){
                         alert("该商品不存在或库存不足");
@@ -141,6 +153,7 @@ $(function(){
 
                 },
                 error:function(jqXHR){
+                    theload.hide();
                     console.log(jqXHR);
                 }
             });
@@ -175,10 +188,11 @@ window.onload = function(e){
                 alert("请输入学生学号");
             }
             else{
+                theload.show();
                 $.ajax({
                     async:false,
                     type:"POST",
-                    url:"http://wxy.nenu.edu.cn/aixinWeb/doService?flag=queryGoodsByBarcode",
+                    url:theUrl + "doService?flag=queryGoodsByBarcode",
                     dataType:"json",
                     data:{
                         barCode:code
@@ -188,6 +202,7 @@ window.onload = function(e){
                     },
                     crossDomain: true,
                     success:function(x,y,xhr){
+                        theload.hide();
                         jqxhr = xhr;
                         if(x == null){
                             alert("该商品不存在或库存不足");
@@ -212,6 +227,7 @@ window.onload = function(e){
 
                     },
                     error:function(jqXHR){
+                        theload.hide();
                         console.log(jqXHR);
                     }
                 });
@@ -232,10 +248,11 @@ function delDom() {
                 var con;
                 con=confirm("确认删除该商品?");
                 if (con == true) {
+                    theload.show();
                     $.ajax({
                         async:false,
                         type:"POST",
-                        url:"http://wxy.nenu.edu.cn/aixinWeb/doService?flag=deleteGoods",
+                        url:theUrl + "doService?flag=deleteGoods",
                         dataType:"json",
                         data:{
                             barCode:thebarcode
@@ -245,6 +262,7 @@ function delDom() {
                         },
                         crossDomain: true,
                         success:function(x,y,xhr){
+                            theload.hide();
                             jqxhr = xhr;
                             if (that.parent().siblings().children('.thecointype').text() == "日用币") {
                                 var coin = that.parent().siblings().children('.theprice').text();
@@ -257,6 +275,7 @@ function delDom() {
                             that.parent().parent().remove();
                         },
                         error:function(jqXHR){
+                            theload.hide();
                             console.log(jqXHR);
                             console.log("删除失败");
                         }
@@ -298,10 +317,11 @@ $('#balance').click(function(){
             $(".thebarcode").each(function(){
                 allCode.push($(this).html());
             });
+            theload.show();
             $.ajax({
                 async:false,
                 type:"POST",
-                url:"http://wxy.nenu.edu.cn/aixinWeb/doService?flag=settlement",
+                url:theUrl + "doService?flag=settlement",
                 dataType:"json",
                 data: {
                     stuID:lastID,
@@ -315,16 +335,27 @@ $('#balance').click(function(){
                 crossDomain: true,
                 traditional: true,
                 success:function(x,y,xhr){
+                    theload.hide();
                     jqxhr = xhr;
                     alert("购买成功");
                     $('#shopList').empty();
+                    $('#buyRecord').empty();
                     coinRiyong = 0;
                     coinFuzhuang = 0;
+                    $('#barCode').val('');
                     $('#shopRiyong').val(coinRiyong);
                     $('#shopFuzhuang').val(coinFuzhuang);
-                    $("#thesearch").click();
+                    $('#stuID').val('');
+                    $('#stuName').val('');
+                    $('#departmentName').val('');
+                    $('#specialName').val('');
+                    $('#grade').val('');
+                    $('#imburseTypeName').val('');
+                    $('#balanceRiyong').val('');
+                    $('#balanceFuzhuang').val('');
                 },
                 error:function(jqXHR){
+                    theload.hide();
                     console.log(jqXHR);
                 }
             });
