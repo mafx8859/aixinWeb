@@ -3,6 +3,7 @@ package com.bluemsun.controller;
 import com.bluemsun.entity.BuyRecord;
 import com.bluemsun.entity.Goods;
 import com.bluemsun.entity.Student;
+import com.bluemsun.entity.TempBuyInfo;
 import com.bluemsun.service.DoService;
 import net.sf.json.JSONObject;
 
@@ -27,11 +28,18 @@ public class DoServiceServlet extends HttpServlet {
             flag="queryGoodsByBarcode";
         }
         switch (flag){
-            case "queryInfo":queryInfo(request,response);break;//查询用户基本信息
-            case "queryGoodsByBarcode":queryGoodsByBarcode(request,response);break;//根据条形码查询商品信息
-            case "settlement":settlement(request,response);break;//结算
-            case "deleteGoods":deleteGoods(request,response);break;
-            case "safeOut":safeOut(request,response);break;
+            case "queryInfo":
+                queryInfo(request,response);break;//查询用户基本信息
+            case "queryGoodsByBarcode":
+                queryGoodsByBarcode(request,response);break;//根据条形码查询商品信息
+            case "settlement":
+                settlement(request,response);break;//结算
+            case "deleteGoods":
+                deleteGoods(request,response);break;
+            case "safeOut":
+                safeOut(request,response);break;
+            default:
+                response.sendRedirect("http://wxy.nenu.edu.cn/aixinWeb/supermarket/index.html");
         }
     }
     @Override
@@ -67,29 +75,43 @@ public class DoServiceServlet extends HttpServlet {
     private void queryGoodsByBarcode(HttpServletRequest request, HttpServletResponse response){
         String barCode=request.getParameter("barCode");
         System.out.println("********************"+barCode+"********");
+        String stuID=request.getParameter("stuID");
         HttpSession session=request.getSession(true);
         /*if(session.getAttribute("goodsMap")==null){
             Map<String,Goods> goodsMap=new HashMap<String,Goods>();
             session.setAttribute("goodsMap",goodsMap);//将存储物品的条形码和具体信息的map存入session
         }*/
         if(session.getAttribute("goodsNumMap")==null){
-            Map<String ,Integer> goodsNumMap=new HashMap<String,Integer>();//用于存储当前已经选择的物品的数量
+            Map<String ,TempBuyInfo> goodsNumMap=new HashMap<String,TempBuyInfo>();//用于存储当前已经选择的物品的数量
             session.setAttribute("goodsNumMap",goodsNumMap);
         }
-        HashMap<String,Integer> goodsMap=(HashMap<String,Integer>)session.getAttribute("goodsNumMap");//获取存放条形码数当前选择数量的map
+        HashMap<String, TempBuyInfo> goodsMap=(HashMap<String, TempBuyInfo>)session.getAttribute("goodsNumMap");//获取存放条形码数当前选择数量的map
+
         if(goodsMap.get(barCode)==null){
-            goodsMap.put(barCode,0);
+            TempBuyInfo buyInfo=doService.getBuyInfo(barCode,stuID);
+            goodsMap.put(barCode,buyInfo);
         }
         Goods goods=doService.getGoodsByCode(barCode);//获取新扫描的货物
-        int num=goodsMap.get(barCode)+1;//当前选择购买的数量
+        int num=goodsMap.get(barCode).getBuyGoodsNum()+1;//当前选择购买的数量
+        //status=1:添加成功 status=0：库存不足 status=-1：超过限购
+        int status=1;
         if(goods==null||goods.getNum()<num) {
+            status=0;
             goods=null;
-        }else {
-           goodsMap.replace(barCode,num);//替换原来的数量
-           session.setAttribute("goodsMap",goodsMap);
+        //当限购量是1时，表示不存在限购
+        }else if(goodsMap.get(barCode).getLimitBuyNum()!=-1&&(num+goodsMap.get(barCode).getRecordBuyNum())>(goodsMap.get(barCode).getLimitBuyNum())){
+
+            status=-1;
+            goods=null;
+        } else {
+            status=1;
+            goodsMap.get(barCode).setBuyGoodsNum(num);
         }
+        Map<String,Object> dataMap=new HashMap<String,Object>();
+        dataMap.put("status",status);
+        dataMap.put("goods",goods);
         try {
-            response.getWriter().write(JSONObject.fromObject(goods).toString());
+            response.getWriter().write(JSONObject.fromObject(dataMap).toString());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -98,11 +120,10 @@ public class DoServiceServlet extends HttpServlet {
         String barcode=request.getParameter("barCode");
         System.out.println("********************"+barcode+"********");
         HttpSession session=request.getSession(true);
-        HashMap<String,Integer> goodsMap=(HashMap<String,Integer>)session.getAttribute("goodsNumMap");
+        HashMap<String,TempBuyInfo> goodsMap=(HashMap<String,TempBuyInfo>)session.getAttribute("goodsNumMap");
         System.out.println(goodsMap);
-        int num=Integer.parseInt(goodsMap.get(barcode).toString())-1;
-        goodsMap.replace(barcode,num);
-        session.setAttribute("goodsMap",goodsMap);
+        int num=goodsMap.get(barcode).getBuyGoodsNum()-1;
+        goodsMap.get(barcode).setBuyGoodsNum(num);
         String message="{\"stateCode\":\"1\"}";
         try {
             response.getWriter().write(JSONObject.fromObject(message).toString());
@@ -114,8 +135,8 @@ public class DoServiceServlet extends HttpServlet {
     private void settlement(HttpServletRequest request, HttpServletResponse response){
         String[] barcodeArry=request.getParameterValues("barcodeArry");
         System.out.println("------"+request.getParameter("balanceRiyong"));
-        int balanceRiyong=Integer.parseInt(request.getParameter("balanceRiyong"));
-        int balanceFuzhuang=Integer.parseInt(request.getParameter("balanceFuzhuang"));
+        float balanceRiyong=Float.parseFloat(request.getParameter("balanceRiyong"));
+        float balanceFuzhuang=Float.parseFloat(request.getParameter("balanceFuzhuang"));
         String userId=request.getSession().getAttribute("username").toString();
         /*String userId="534";
         System.out.println(request.getSession());

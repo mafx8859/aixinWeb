@@ -114,12 +114,14 @@ $(function(){
         }
         else{
             theload.show();
+            var stuID = $("#stuID").val();
             $.ajax({
                 async:false,
                 type:"POST",
                 url:theUrl + "doService?flag=queryGoodsByBarcode",
                 dataType:"json",
                 data:{
+                    stuID:stuID,
                     barCode:barCode
                 },
                 xhrFields: {
@@ -129,23 +131,26 @@ $(function(){
                 success:function(x,y,xhr){
                     theload.hide();
                     jqxhr = xhr;
-                    if(x == null){
+                    if(x.status == 0){
                         alert("该商品不存在或库存不足");
                     }
-                    else{
+                    else if(x.status == -1){
+                        alert("已达到限购数量");
+                    }
+                    else if(x.status == 1){
                         var shopList = $('#shopList');
                         var thetype;
-                        if (x.coinType == 0) {
+                        if (x.goods.coinType == 0) {
                             thetype = "日用币";
-                            totalRiyong(x.price);
+                            totalRiyong(x.goods.price);
                         }
                         else {
                             thetype = "服装币";
-                            totalFuzhuang(x.price);
+                            totalFuzhuang(x.goods.price);
                         }
-                        shopList.append("<tr><td class='thebarcode'>" + x.barcode + "</td><td>"
-                            + x.categoryName + "</td><td>"
-                            + "<span class='theprice'>" + x.price +"</span>" + "&nbsp" + "<span class='thecointype'>"+ thetype + "</span>" + "</td><td>"
+                        shopList.append("<tr><td class='thebarcode'>" + x.goods.barcode + "</td><td>"
+                            + x.goods.categoryName + "</td><td>"
+                            + "<span class='theprice'>" + x.goods.price +"</span>" + "&nbsp" + "<span class='thecointype'>"+ thetype + "</span>" + "</td><td>"
                             + "<button class='deltheDom'>删除</button></td></tr>");
 
                         delDom();
@@ -189,48 +194,54 @@ window.onload = function(e){
             }
             else{
                 theload.show();
+                var stuID = $("#stuID").val();
                 $.ajax({
-                    async:false,
-                    type:"POST",
-                    url:theUrl + "doService?flag=queryGoodsByBarcode",
-                    dataType:"json",
-                    data:{
-                        barCode:code
-                    },
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    crossDomain: true,
-                    success:function(x,y,xhr){
-                        theload.hide();
-                        jqxhr = xhr;
-                        if(x == null){
-                            alert("该商品不存在或库存不足");
-                        }
-                        else{
-                            var shopList = $('#shopList');
-                            var thetype;
-                            if (x.coinType == 0) {
-                                thetype = "日用币";
-                                totalRiyong(x.price);
-                            }
-                            else {
-                                thetype = "服装币";
-                                totalFuzhuang(x.price);
-                            }
-                            shopList.append("<tr><td class='thebarcode'>" + x.barcode + "</td><td>"
-                                + x.categoryName + "</td><td>"
-                                + "<span class='theprice'>" + x.price +"</span>" + "&nbsp" + "<span class='thecointype'>"+ thetype + "</span>" + "</td><td>"
-                                + "<button class='deltheDom'>删除</button></td></tr>");
-                            delDom();
-                        }
-
-                    },
-                    error:function(jqXHR){
-                        theload.hide();
-                        console.log(jqXHR);
+                async:false,
+                type:"POST",
+                url:theUrl + "doService?flag=queryGoodsByBarcode",
+                dataType:"json",
+                data:{
+                    stuID:stuID,
+                    barCode:barCode
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success:function(x,y,xhr){
+                    theload.hide();
+                    jqxhr = xhr;
+                    if(x.status == 0){
+                        alert("该商品不存在或库存不足");
                     }
-                });
+                    else if(x.status == -1){
+                        alert("已达到限购数量");
+                    }
+                    else if(x.status == 1){
+                        var shopList = $('#shopList');
+                        var thetype;
+                        if (x.goods.coinType == 0) {
+                            thetype = "日用币";
+                            totalRiyong(x.goods.price);
+                        }
+                        else {
+                            thetype = "服装币";
+                            totalFuzhuang(x.goods.price);
+                        }
+                        shopList.append("<tr><td class='thebarcode'>" + x.goods.barcode + "</td><td>"
+                            + x.goods.categoryName + "</td><td>"
+                            + "<span class='theprice'>" + x.goods.price +"</span>" + "&nbsp" + "<span class='thecointype'>"+ thetype + "</span>" + "</td><td>"
+                            + "<button class='deltheDom'>删除</button></td></tr>");
+
+                        delDom();
+                    }
+
+                },
+                error:function(jqXHR){
+                    theload.hide();
+                    console.log(jqXHR);
+                }
+            });
                 return jqxhr;
             };
             code = "";

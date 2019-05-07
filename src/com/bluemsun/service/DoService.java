@@ -1,10 +1,7 @@
 package com.bluemsun.service;
 
 import com.bluemsun.dao.DoServiceDao;
-import com.bluemsun.entity.BuyRecord;
-import com.bluemsun.entity.Goods;
-import com.bluemsun.entity.Record;
-import com.bluemsun.entity.Student;
+import com.bluemsun.entity.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +34,13 @@ public class DoService {
             doServiceDao.saveRecord(record);
         }
     }
-    public boolean updateStuMoneyService(String stuID,int balanceRiyong,int balanceFuzhuang){
+    public boolean updateStuMoneyService(String stuID,float balanceRiyong,float balanceFuzhuang){
         return doServiceDao.updateStuMoney(stuID,balanceRiyong,balanceFuzhuang);
+    }
+    public TempBuyInfo getBuyInfo(String barCode,String stuID){
+        Student student=getStuInfoByStuId(stuID);
+
+
+        return doServiceDao.getGetBuyInfoDao(barCode,student.getId());
     }
 }

@@ -6,7 +6,7 @@ package com.bluemsun.entity;
 public class Goods {
     private String barcode;
     private String categoryName;
-    private int price;
+    private float price;
     private int coinType;
     private int num;
     public int getCoinType() {
@@ -41,11 +41,11 @@ public class Goods {
         this.categoryName = categoryName;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
