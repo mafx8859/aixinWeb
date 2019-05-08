@@ -74,31 +74,30 @@ public class DoServiceServlet extends HttpServlet {
     }
     private void queryGoodsByBarcode(HttpServletRequest request, HttpServletResponse response){
         String barCode=request.getParameter("barCode");
-        System.out.println("********************"+barCode+"********");
         String stuID=request.getParameter("stuID");
         HttpSession session=request.getSession(true);
-        /*if(session.getAttribute("goodsMap")==null){
-            Map<String,Goods> goodsMap=new HashMap<String,Goods>();
-            session.setAttribute("goodsMap",goodsMap);//将存储物品的条形码和具体信息的map存入session
-        }*/
         if(session.getAttribute("goodsNumMap")==null){
             Map<String ,TempBuyInfo> goodsNumMap=new HashMap<String,TempBuyInfo>();//用于存储当前已经选择的物品的数量
             session.setAttribute("goodsNumMap",goodsNumMap);
         }
         HashMap<String, TempBuyInfo> goodsMap=(HashMap<String, TempBuyInfo>)session.getAttribute("goodsNumMap");//获取存放条形码数当前选择数量的map
-
-        if(goodsMap.get(barCode)==null){
-            TempBuyInfo buyInfo=doService.getBuyInfo(barCode,stuID);
-            goodsMap.put(barCode,buyInfo);
-        }
+        int num=0;
         Goods goods=doService.getGoodsByCode(barCode);//获取新扫描的货物
-        int num=goodsMap.get(barCode).getBuyGoodsNum()+1;//当前选择购买的数量
+        if(goods!=null){
+            TempBuyInfo buyInfo=doService.getBuyInfo(barCode,stuID);
+            if(goodsMap.get(barCode)==null) {
+                goodsMap.put(barCode, buyInfo);
+            }
+            num=goodsMap.get(barCode).getBuyGoodsNum()+1;//当前选择购买的数量
+        }
+
         //status=1:添加成功 status=0：库存不足 status=-1：超过限购
         int status=1;
         if(goods==null||goods.getNum()<num) {
             status=0;
             goods=null;
-        //当限购量是1时，表示不存在限购
+        //当限购量是-1时，表示不存在限购
+        //当前添加量加上已经购买量>限购量则说明达到限购
         }else if(goodsMap.get(barCode).getLimitBuyNum()!=-1&&(num+goodsMap.get(barCode).getRecordBuyNum())>(goodsMap.get(barCode).getLimitBuyNum())){
 
             status=-1;

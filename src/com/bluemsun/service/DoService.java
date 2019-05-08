@@ -39,8 +39,6 @@ public class DoService {
     }
     public TempBuyInfo getBuyInfo(String barCode,String stuID){
         Student student=getStuInfoByStuId(stuID);
-
-
         return doServiceDao.getGetBuyInfoDao(barCode,student.getId());
     }
 }

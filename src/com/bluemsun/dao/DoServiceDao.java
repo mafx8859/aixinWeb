@@ -23,11 +23,12 @@ public class DoServiceDao {
                "param_department.departmentName,param_special.specialName,param_imbursetype.imburseTypeName," +
                "aixin_student.balanceRiyong,aixin_student.balanceFuzhuang from info_student,param_department,param_special,param_imbursetype,aixin_student " +
                "where aixin_student.info_studentId=info_student.id and info_student.departmentId=param_department.id and info_student.specialNum=param_special.id and info_student.imburseType=param_imbursetype.id" +
-               " and info_student.stuNum='"+stuID+"'";
+               " and info_student.stuNum=?";
        conn=JDBCUtil.getConnection();
        Student student=null;
+       Object[] param={stuID};
        try {
-           student = queryRunner.query(conn, sql, new BeanHandler<Student>(Student.class));
+           student = queryRunner.query(conn, sql, new BeanHandler<Student>(Student.class),param);
        }catch (SQLException ex){
            ex.printStackTrace();
        }finally {
@@ -94,11 +95,12 @@ public class DoServiceDao {
         return getBuyRecord(id,sql);
     }
     public Goods getGoodsByCodeDao(String barcode) {
-        String sql = "SELECT aixin_goods.barcode,aixin_goods.categoryName,aixin_goods.price,aixin_goods.type as 'coinType',aixin_cangku.num FROM aixin_goods,aixin_cangku where aixin_goods.id=aixin_cangku.goodsId and barcode=" + barcode;
+        String sql = "SELECT aixin_goods.barcode,aixin_goods.categoryName,aixin_goods.price,aixin_goods.type as 'coinType',aixin_cangku.num FROM aixin_goods,aixin_cangku where aixin_goods.id=aixin_cangku.goodsId and barcode=?";
         conn = JDBCUtil.getConnection();
+        Object[] param={barcode};
         Goods goods = null;
         try {
-            goods = queryRunner.query(conn, sql, new BeanHandler<Goods>(Goods.class));
+            goods = queryRunner.query(conn, sql, new BeanHandler<Goods>(Goods.class),barcode);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }finally {
@@ -217,7 +219,9 @@ public class DoServiceDao {
             ps=conn.prepareStatement(sql1);
             ps.setString(1,barCode);
             resultSet=ps.executeQuery();
-            resultSet.first();
+            if(!resultSet.first()){
+                return null;
+            }
             buyInfo.setLimitBuyNum(resultSet.getInt(1));
             buyInfo.setLimitBuyType(resultSet.getString(2));
             goodsId=resultSet.getInt(3);

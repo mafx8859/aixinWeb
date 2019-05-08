@@ -10,19 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b80bab2-c20b-403f-ac83-2ec10d7cf0da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/controller/DoServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/controller/DoServiceServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/dao/DoServiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/dao/DoServiceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/entity/Goods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/service/DoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/aixinWeb_war_exploded/WEB-INF/classes/com/bluemsun/service/DoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/controller/DoServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/controller/DoServiceServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/dao/DoServiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/dao/DoServiceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/entity/Goods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/service/DoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aixinWeb/com/bluemsun/service/DoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bluemsun/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bluemsun/entity/Goods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bluemsun/service/DoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bluemsun/service/DoService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,10 +26,11 @@
     <session id="1657375747">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.103" value="1" />
           <entry key="project.open.time.104" value="1" />
+          <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.117" value="1" />
           <entry key="project.open.time.123" value="1" />
           <entry key="project.open.time.3" value="2" />
@@ -49,35 +40,37 @@
           <entry key="project.open.time.82" value="1" />
           <entry key="project.open.time.94" value="1" />
           <entry key="project.open.time.96" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="1" />
           <entry key="html" value="1" />
-          <entry key="java" value="34" />
-          <entry key="js" value="7" />
+          <entry key="java" value="35" />
+          <entry key="js" value="8" />
           <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CLASS" value="1" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="34" />
-          <entry key="JavaScript" value="7" />
+          <entry key="JAVA" value="35" />
+          <entry key="JavaScript" value="8" />
           <entry key="XML" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2098" />
+          <entry key="java" value="2350" />
           <entry key="js" value="17" />
           <entry key="xml" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2098" />
+          <entry key="JAVA" value="2350" />
           <entry key="JavaScript" value="17" />
           <entry key="XML" value="26" />
         </counts>
@@ -86,11 +79,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
+            <state relative-caret-position="406">
+              <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -98,26 +91,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bluemsun/service/DoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+            <state relative-caret-position="291">
+              <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bluemsun/entity/Record.java">
+        <entry file="file://$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="99">
+              <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/QueryRunner.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -126,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/bluemsun/entity/BuyRecord.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
-              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -161,8 +154,8 @@
         <option value="$PROJECT_DIR$/src/c3p0-config.xml" />
         <option value="$PROJECT_DIR$/src/com/bluemsun/entity/TempBuyInfo.java" />
         <option value="$PROJECT_DIR$/src/com/bluemsun/service/DoService.java" />
-        <option value="$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java" />
         <option value="$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java" />
+        <option value="$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java" />
       </list>
     </option>
   </component>
@@ -196,6 +189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,47 +219,18 @@
             <path>
               <item name="aixinWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="aixinWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bluemsun" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aixinWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aixinWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bluemsun" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aixinWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aixinWeb" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aixinWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aixinWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aixinWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aixinWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557235015657" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557237564053" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -273,8 +239,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\ideaWorkSpace\aixinWeb\web\supermarket" />
       <recent name="E:\ideaWorkSpace\aixinWeb\web" />
+      <recent name="E:\ideaWorkSpace\aixinWeb\web\supermarket" />
       <recent name="E:\ideaWorkSpace\aixinWeb\src\com\bluemsun\dao" />
       <recent name="E:\ideaWorkSpace\aixinWeb\web\WEB-INF\lib" />
       <recent name="E:\ideaWorkSpace\aixinWeb\src" />
@@ -595,18 +561,28 @@
       <workItem from="1556959981827" duration="2779000" />
       <workItem from="1557018532221" duration="9814000" />
       <workItem from="1557133811795" duration="12050000" />
-      <workItem from="1557190739525" duration="4469000" />
+      <workItem from="1557190739525" duration="6517000" />
+      <workItem from="1557277875161" duration="6619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155620000" />
+    <option name="totallyTimeSpent" value="164287000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5761124" visible="true" weight="0.078367874" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5769829" visible="true" weight="0.06930052" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -614,17 +590,17 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Nl-Palette" order="7" />
-      <window_info id="Web" order="8" sideWeight="0.42388758" side_tool="true" visible="true" weight="0.078367874" />
+      <window_info id="Web" order="8" sideWeight="0.4230171" side_tool="true" visible="true" weight="0.06930052" />
       <window_info id="Alibaba Cloud Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.38115942" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.06811594" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289855" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3286517" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289855" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.07971015" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.17681159" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -755,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/supermarket/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bluemsun/dao/JDBCUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -797,38 +766,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bluemsun/service/DoService.java">
+    <entry file="file://$PROJECT_DIR$/web/supermarket/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
+        <state relative-caret-position="100">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bluemsun/entity/Record.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="290">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bluemsun/entity/BuyRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/QueryRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bluemsun/dao/DoServiceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+        <state relative-caret-position="99">
+          <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bluemsun/service/DoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bluemsun/controller/DoServiceServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
         </state>
       </provider>
     </entry>
