@@ -16,7 +16,6 @@
    <!--配置连接池mysql-->
     <named-config name="aixinPool">
         <property name="driverClass">com.mysql.jdbc.Driver</property>  
-        <!--<property name="jdbcUrl">jdbc:mysql://59.73.208.214:3306/ais</property>-->
         <property name="jdbcUrl">jdbc:mysql://localhost:3306/ais</property>
         <property name="user">root</property>  
         <property name="password">hellolanxu</property>
